@@ -1,0 +1,159 @@
+main{
+	display:flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.wrap_top{
+	display:flex;
+	width: 80%;
+}
+
+.block-letters{
+	display: flex;
+	flex-wrap: wrap;
+	width: 80%;
+	/*column-gap: 1vw;
+	row-gap: 1vw;*/
+	justify-content: center;
+}
+
+.test{
+	height: 300px;
+	width: 80%;
+	background-color: yellow;
+}
+
+.block-numbers{
+	display: flex;
+	flex-wrap: wrap;
+	width: 20%;
+	background-color: green;
+	/*column-gap: 1vw;
+	row-gap: 1vw;*/
+	justify-content: center;
+}
+
+.common{
+	font-size: 3rem;
+	margin-right: 1vw;
+	margin-bottom: 1vw;
+	padding: 10px;
+	border-radius: 10px;
+	border: 1px solid green;
+	cursor: pointer;
+	transform: scale(1.0);
+}
+
+.common:hover{
+	background-color: #FFC0CB;
+	/*transform: scale(1.5);*/
+}
+
+.result{
+	display:flex;
+	width: 70%;
+	margin: 30vh auto 0 auto;
+	/*column-gap: 3vw;*/
+}
+
+.letter{
+    display: flex;
+	margin-right: 3vw;
+	align-items: center;
+    justify-content: center;
+    width: 7vw;
+    height: 7vw;
+	font-size: 5rem;
+	border: 2px solid green;
+	cursor: pointer;
+	transform: scale(1.0);
+}
+
+.letter:hover{
+	/*animation-name: hover;
+	animation-duration: 1s;
+	animation-fill-mode: forwards;*/
+}
+
+.reset{
+	font-size: 2rem;
+	padding: 10px;
+	border-radius: 10px;
+	border: 1px solid green;
+	cursor: pointer;
+	justify-content: center;
+	align-items: center;
+}
+
+
+/*figures*/
+.square{
+	border-radius: 10px;
+}
+.circle{
+	border-radius: 50%;
+}
+
+.oval{
+	height: 5vw;
+	border-radius: 3vw/2.5vw;
+}
+
+/*animation*/
+.animate-rotate-turn{
+    animation-name: rotate-turn;
+	animation-duration: 2s;
+	animation-fill-mode: forwards;
+}
+
+.animate-rotate-deg{
+    animation-name: rotate-deg;
+	animation-duration: 1s;
+	animation-fill-mode: forwards;
+}
+
+.animate-scale{
+	animation-name: scale;
+	animation-duration: 1s;
+	animation-fill-mode: forwards;
+}
+
+@keyframes rotate-turn {
+	from{
+		transform: rotate(0turn);
+	}
+	to{
+		transform: rotate(1turn);
+	}
+}
+
+@keyframes rotate-deg {
+	from{
+		transform: rotate(180deg);
+	}
+	to{
+		transform: rotate(360deg);
+	}
+}
+
+@keyframes scale {
+	from{
+		transform: scale(0.5);
+	}
+	50%{
+		transform: scale(1.5);
+	}
+	to{
+		transform: scale(1);
+	}
+}
+
+@keyframes hover {
+	from{
+		transform: scale(1.0);
+	}
+	to{
+		transform: scale(1.5);
+	}
+}
