@@ -1,20 +1,15 @@
-import {arrNumbers} from './numbers.js';
-import Content from './content.js';
 import Alphabet from './Alphabet.js';
 
-
+let main = document.querySelector("main");
+let section = document.querySelector("section");
 let blockLetters = document.querySelector(".block-letters");
 let result = document.querySelector(".result");
 let reset = document.querySelector(".reset");
+let res;
 
-
-let num = new Content(10);
-
-console.log("value: "+num.test());
-console.log("numbers: "+arrNumbers);
 
 let alphabet = new Alphabet();
-reset.addEventListener('click',alphabet.onLoad);
+//reset.addEventListener('click',alphabet.onLoad);
 
 
 let arrLetters = ['А', 'Б', 'В', 'Г', 'Д', 'Е', 'Ё', 'Ж', 'З', 'И', 'Й', 'К', 'Л', 'М', 'Н', 'О', 'П', 'Р', 'С', 'Т', 'У', 'Ф', 'Х', 'Ц', 'Ч', 'Ш', 'Щ', 'Ь', 'Ы', 'Ъ', 'Э', 'Ю', 'Я'];
@@ -34,8 +29,8 @@ function getRandomInt(max) {
 }
 
 for (let letter of arrLetters){
- 
-	let div = document.createElement('div');
+    
+    let div = document.createElement('div');
 	div.classList.add("common");
 	div.innerHTML = letter;
 	blockLetters.append(div); 
@@ -46,7 +41,35 @@ let getRandAnimate = getRandomInt(arrAnimate.length);
 let getRandFigure = getRandomInt(arrFigures.length);
 let classesToAdd = ['letter',arrAnimate[getRandAnimate],arrFigures[getRandFigure]];
 
-blockLetters.addEventListener('click',onClick);
+
+
+document.addEventListener('click',testClick);
+function testClick(event){
+    
+    let elem = event.target.closest("section").className;
+    let elem1 = event.target.closest("section").dataset.show;
+    
+    console.log("dataset work: "+elem);
+    console.log("dataset work1: "+elem1);
+    //console.log("attr: "+section.getAttribute('dataShow'));
+    
+    //if(event.target.closest("section").dataset.show) {
+        //!("someDataAttr" in el.dataset)
+    //}
+    if (elem === "block-letters") return;
+    
+    switch(elem1){
+        case "numbers":
+            console.log("num: "+event.target.innerHTML);
+            break;
+        case "letters":
+            console.log("letters: "+event.target.innerHTML);
+            break;
+    }
+}
+
+//blockLetters.addEventListener('click',onClick);//разкомментировать!!!
+
 //let classesToAdd = ['letter','animate-rotate-turn'];
 //let classesToAdd = ['letter','animate-scale'];
 //div.classList.add(...classesToAdd);
@@ -58,22 +81,25 @@ function onClick(e){
     //classesToAdd.push(arrColors[+getRandColor]);
 
 	if (e.target.className === "block-letters") return;
+	
+	
+	
 	let div = document.createElement('div');
-	//div.classList.add('letter');
 	div.classList.add(...classesToAdd);
+	//div.classList.add('letter');
 	div.innerHTML = e.target.innerHTML;
 	div.style.backgroundColor = arrColors[getRandColor];
-	result.append(div); 
+	res.append(div);
+	
 }
 
 reset.addEventListener("click",()=> {
-	let arrDelete = document.querySelectorAll(".letter");
-
-	for (let elem of arrDelete){
-		elem.remove();
-	}
-	
-	getRandAnimate = getRandomInt(arrAnimate.length);
+    if(res !== null){
+        res.remove();
+    res = null;
+    }
+    
+    getRandAnimate = getRandomInt(arrAnimate.length);
 	getRandFigure = getRandomInt(arrFigures.length);
-    classesToAdd = ['letter',arrAnimate[getRandAnimate],arrFigures[getRandFigure]];
+	classesToAdd = ['letter',arrAnimate[getRandAnimate],arrFigures[getRandFigure]];
 })

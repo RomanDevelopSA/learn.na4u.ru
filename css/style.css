@@ -54,6 +54,8 @@ main{
 	display:flex;
 	width: 70%;
 	margin: 30vh auto 0 auto;
+	min-height: 50px;
+	background-color: #FFC0CB;
 	/*column-gap: 3vw;*/
 }
 
