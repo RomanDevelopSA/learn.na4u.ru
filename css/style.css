@@ -19,7 +19,8 @@ main{
 }
 
 .test{
-	height: 300px;
+	display: none;
+	height: 50px;
 	width: 80%;
 	background-color: yellow;
 }
@@ -55,7 +56,6 @@ main{
 	width: 70%;
 	margin: 30vh auto 0 auto;
 	min-height: 50px;
-	background-color: #FFC0CB;
 	/*column-gap: 3vw;*/
 }
 

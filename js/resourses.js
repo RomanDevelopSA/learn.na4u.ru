@@ -9,3 +9,12 @@ export let arrColors = [
 let arrAnimate = ['animate-rotate-turn','animate-rotate-deg','animate-scale'];
 let arrFigures = ['oval','square','circle'];
 export let classesByItem = [arrAnimate, arrFigures];
+
+let arrLetters = [
+	'А', 'Б', 'В', 'Г', 'Д', 'Е', 'Ё', 'Ж', 'З', 'И', 'Й', 'К', 'Л', 'М', 'Н', 'О', 'П',
+	'Р', 'С', 'Т', 'У', 'Ф', 'Х', 'Ц', 'Ч', 'Ш', 'Щ', 'Ь', 'Ы', 'Ъ', 'Э', 'Ю', 'Я'
+];
+
+let arrNumbers = [1,2,3,4,5,6,7,8,9,0];
+
+export let arrData = [arrLetters, arrNumbers];
