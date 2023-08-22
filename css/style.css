@@ -9,6 +9,14 @@ main{
 	width: 80%;
 }
 
+
+
+.test{
+	height: 300px;
+	width: 80%;
+	background-color: yellow;
+}
+
 .block-letters{
 	display: flex;
 	flex-wrap: wrap;
@@ -18,11 +26,88 @@ main{
 	justify-content: center;
 }
 
-.test{
-	height: 300px;
+/*styles for grid*/
+.grid{
+	display: grid;
+	margin-left: auto;
+	margin-right: auto;
 	width: 80%;
-	background-color: yellow;
+	justify-content: center;
+	grid-template-columns: 1fr auto;
+	grid-template-rows: auto 1fr 1fr;
+	grid-auto-rows:1fr;
+	grid-template-areas:
+	"alphabet reset"
+	"alphabet calculator "
+    "item item";
+	align-items: start;
+	gap: 20px;
 }
+
+.grid-alphabet {
+	grid-area: alphabet;
+	background-color: aqua;
+}
+
+/*START styles for calculator*/
+.calculator{
+	grid-area: calculator;
+	display: grid;
+	border-radius: 10px;
+	grid-template-columns: repeat(5,1fr);
+	grid-template-rows: repeat(4,1fr);
+	grid-gap: 1px;
+	overflow: hidden;
+	background-color: black;
+	border: black 1px solid;
+}
+
+.calculator_key{
+	font-size: 3rem;
+	padding: 10px;
+	background: #ffffff;
+}
+
+.calculator_key--enter,
+.calculator_key--plus,
+.calculator_key--minus{
+	display: flex;
+	align-items: center;
+}
+
+.calculator_key--enter{
+	grid-column: 5/6;
+	grid-row: 1/span 4;
+}
+
+.calculator_key--plus{
+	grid-column: 4/5;
+	grid-row: 1/span 2;
+}
+
+.calculator_key--minus{
+	grid-column: 4/5;
+	grid-row: 3/span 2;
+}
+
+.calculator_key--zero{
+	grid-column: 1/span 3;
+	display: flex;
+	justify-content: center;
+}
+
+/*END styles for calculator*/
+
+
+.reset{
+	grid-area: reset;
+}
+.item{
+	grid-area: item;
+	background-color: coral;
+}
+
+/*styles for grid*/
 
 .block-numbers{
 	display: flex;
