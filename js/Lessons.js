@@ -11,11 +11,10 @@ export default class Lessons{
     }
     
     classesToAdd(arrClasses){
-        //let length = arrClasses.map(item => item.length);
+
         let randomClasses = [];
         
         arrClasses.forEach((item) => {
-            console.log(`massiv ${item} длина ${item.length}`);
             let rand = item[this.getRandInt(item.length)];
             
             randomClasses.push(rand);
