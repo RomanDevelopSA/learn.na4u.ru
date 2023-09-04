@@ -7,30 +7,21 @@
 </head>
 
 <body>
-	<main>
-		<div class="wrap_top">
-			<section class="block-letters"></section>
-			<section class="block-numbers"></section>
-			<div class="reset">Сброс</div>
-		</div>
-		<section class="test"></section>
-
-</main>
 
 <main class="flex">
-    <section class="task">
+    <section class="tasks">
         <div class="categories">
             <div class="categories--item">буквы</div>
             <div class="categories--item">знаки</div>
         </div>
-        Content task
+        <section class="task_content"></section>
     </section>
     <section class="control_panel">
         <div class="reset">Сбросить</div>
         <section class="calculator">
-            <div class="calculator_key">1</div>
-            <div class="calculator_key">2</div>
-            <div class="calculator_key">3</div>
+            <div class="calculator_key" >1</div>
+            <div class="calculator_key" >2</div>
+            <div class="calculator_key" >3</div>
             <div class="calculator_key">4</div>
             <div class="calculator_key">5</div>
             <div class="calculator_key">6</div>
@@ -38,15 +29,15 @@
             <div class="calculator_key">8</div>
             <div class="calculator_key">9</div>
             <div class="calculator_key calculator_key--zero">0</div>
-            <div class="calculator_key calculator_key--plus">+</div>
-            <div class="calculator_key calculator_key--minus">-</div>
-            <div class="calculator_key calculator_key--enter">=</div>
+            <div class="calculator_key calculator_key--plus" data-key="add">+</div>
+            <div class="calculator_key calculator_key--minus" data-key="subtract">-</div>
+            <div class="calculator_key calculator_key--enter" data-key="calculate" data-action>=</div>
         </section>
     </section>
 
 </main>
 
-<div class="result"></div>
+<!--<div class="result"></div>-->
 <script src="js/app.js" type="module"></script>
 </body>
 
