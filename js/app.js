@@ -1,9 +1,9 @@
 import Alphabet from './Alphabet.js';
-import Numbers from "./Numbers.js";
+import Calculator from "./Calculator.js";
 
 let main = document.querySelector("main");
 let taskContent = document.querySelector(".task_content");
-let calculator = document.querySelector(".calculator");
+let calculatorBlock = document.querySelector(".calculator");
 
 let result = document.querySelector(".result");
 let reset = document.querySelector(".reset");
@@ -11,7 +11,7 @@ let res = null;
 
 
 let alphabet = new Alphabet();
-let numbers = new Numbers();
+let calculator = new Calculator();
 
 alphabet.createStartItems();
 
@@ -25,7 +25,7 @@ function createBlockResult(){
 
 
 taskContent.addEventListener('click', onTaskClick);
-calculator.addEventListener('click', onCalculatorClick);
+calculatorBlock.addEventListener('click', onCalculatorClick);
 
 
 function onTaskClick(event) {
@@ -47,23 +47,25 @@ function onTaskClick(event) {
 function onCalculatorClick(event) {
 
     let key = event.target.dataset.key;
-    let keyContent = event.target.innerHTML;
-    
+    let keyContent = event.target.textContent;
+
     createBlockResult();
+    calculator.createShowItem(res, keyContent);
+    let calc;
 
     switch (key) {
         case "add":
-            console.log("add" );
-            numbers.createShowItem(res, keyContent);
+            calculator.getOperator(keyContent);
             break;
         case "subtract":
             console.log("subtract");
             break;
         case "calculate":
-            console.log("calculate");
+            calc = calculator.calculate();
+            calculator.createShowItem(res, calc);
             break;
         default:
-            console.log("reset");
+            calculator.getData(keyContent);
             break;
 
     }
@@ -76,5 +78,7 @@ reset.addEventListener("click", () => {
         res.remove();
         res = null;
     }
+
+    calculator.reset();
 
 })

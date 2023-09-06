@@ -2,7 +2,6 @@ export default class Lessons{
 
     getRandInt(max){
         let rand = Math.floor(Math.random() * max);
-        console.log("getRandInt: "+rand);
         return rand;
     }
 
@@ -16,12 +15,10 @@ export default class Lessons{
         
         arrClasses.forEach((item) => {
             let rand = item[this.getRandInt(item.length)];
-            
             randomClasses.push(rand);
             
             }
         )
-        console.log(randomClasses);
         return randomClasses;
     }
 
