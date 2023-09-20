@@ -8,12 +8,11 @@ export default class Calculator extends Alphabet{
       this.number = "";
       this.arrNums=[];
       this.arrOperators = [];
-      this.result = 0;
+      this.total = 0;
    }
 
    getData(numData, operator){
       this.number += numData;
-      //super.createShowItem();
       console.log("num: "+this.number);
    }
 
@@ -28,28 +27,31 @@ export default class Calculator extends Alphabet{
    calculate(){
       this.arrNums.push(this.number);
       this.arrNums.forEach((item)=>{
-         this.result += +item;
+         this.total += +item;
       })
 
       console.log("arrNums calc: "+this.arrNums);
       console.log("arrOperators calc: " + this.arrOperators);
-      console.log("result calc: " + this.result);
+      console.log("result calc: " + this.total);
 
-      return this.result;
-
+      return this.total;
 
    }
 
    reset(){
+
+      let childElements = document.querySelectorAll(".result>div");
+
+      console.log("childElements "+childElements.length);
+      for (let elem of childElements) {
+         elem.remove();
+      }
+
       this.number="";
       this.arrNums.length = 0;
       this.arrOperators.length = 0;
-      this.result = 0;
+      this.total = 0;
 
-      console.log("num reset: "+this.number);
-      console.log("arrNums reset: "+this.arrNums);
-      console.log("arrOperators reset: " + this.arrOperators);
-      console.log("result reset: " + this.result);
    }
 
 

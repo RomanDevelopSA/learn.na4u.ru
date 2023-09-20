@@ -5,6 +5,7 @@ import * as res from './resourses.js';
 export default class Alphabet{
     
     constructor(){
+		this.result = document.querySelector(".result");
 		this.taskContent = document.querySelector(".task_content");
         this.lessons = new Lessons();
         this.classes = this.lessons.classesToAdd(res.classesByItem);
@@ -21,13 +22,13 @@ export default class Alphabet{
 		}
 	}
 
-	createShowItem(result, content){
+	createShowItem(content){
 
 	    let div = document.createElement('div');
 	    div.classList.add('letter',...this.classes);
 	    div.innerHTML = content;
 	    div.style.backgroundColor = this.lessons.getRandomColor(res.arrColors);
-	    result.append(div);
+	    this.result.append(div);
 	}
 	
 }

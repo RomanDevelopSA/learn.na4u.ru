@@ -9,8 +9,6 @@ main{
 	width: 80%;
 }
 
-
-
 .test{
 	height: 300px;
 	width: 80%;
@@ -113,16 +111,6 @@ main{
 
 /*END styles for calculator*/
 
-.block-numbers{
-	display: flex;
-	flex-wrap: wrap;
-	width: 20%;
-	background-color: green;
-	/*column-gap: 1vw;
-	row-gap: 1vw;*/
-	justify-content: center;
-}
-
 .common{
 	font-size: 3rem;
 	margin-right: 1vw;
@@ -136,14 +124,12 @@ main{
 
 .common:hover{
 	background-color: #FFC0CB;
-	/*transform: scale(1.5);*/
 }
 
 .result{
 	display:flex;
 	width: 70%;
 	margin: 10vh auto 0 auto;
-	/*column-gap: 3vw;*/
 }
 
 .letter{
@@ -173,6 +159,10 @@ main{
 	cursor: pointer;
 	justify-content: center;
 	align-items: center;
+}
+
+.reset:hover{
+	background-color: #FFC0CB;
 }
 
 
