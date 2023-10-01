@@ -31,7 +31,7 @@ function onCalculatorClick(event) {
 
     let key = event.target.dataset.key;
     let keyContent = event.target.innerHTML;
-    console.log("keyContent: " + keyContent + "\ntypeof "+typeof keyContent);
+
     calculator.createShowItem(keyContent);
     let calc;
 

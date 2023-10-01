@@ -9,6 +9,7 @@ export default class Calculator extends Alphabet{
       this.arrNums=[];
       this.arrOperators = [];
       this.total = 0;
+      this.categories = document.querySelector(".categories");
    }
 
    getData(numData, operator){
@@ -27,11 +28,12 @@ export default class Calculator extends Alphabet{
    calculate(){
       this.arrNums.push(this.number);
       this.arrNums.forEach((item)=>{
-         this.total += +item;
+         //this.total += +item;
+         this.total = this.total + +this.arrOperators +item;
       })
 
       console.log("arrNums calc: "+this.arrNums);
-      console.log("arrOperators calc: " + this.arrOperators);
+      console.log("arrOperators calc: " + this.arrOperators[0]);
       console.log("result calc: " + this.total);
 
       return this.total;
