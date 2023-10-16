@@ -1,34 +1,33 @@
-import Lessons from './Lessons.js';
-import * as res from './resourses.js';
+import ShowItems from "./ShowItems.js";
+import {buttons} from "./itemsMap.js";
+
+export default class Alphabet extends ShowItems {
+
+    taskContent = document.querySelector(".task_content");
+
+    createStartItems(key = null) {
+
+        console.log("press " + key);
+        let childElements = document.querySelectorAll(".task_content>div");
+        if (key !== null) {
+
+            for (let elem of childElements) {
+                elem.remove();
+            }
+            let val = buttons.get(key);
+            console.log("need del another elements, val = "+val);
+        }
 
 
-export default class Alphabet{
-    
-    constructor(){
-		this.result = document.querySelector(".result");
-		this.taskContent = document.querySelector(".task_content");
-        this.lessons = new Lessons();
-        this.classes = this.lessons.classesToAdd(res.classesByItem);
+        for (let letter of this.res.arrLettersRu) {
+            let div = document.createElement('div');
+            div.dataset.key = "letter";
+            div.classList.add("common");
+            div.innerHTML = letter;
+            this.taskContent.append(div);
+        }
+
     }
 
-	createStartItems(container=null){
-		for (let letter of res.arrLetters){
-			let div = document.createElement('div');
-			div.dataset.key = "letter";
-			div.classList.add("common");
-			div.innerHTML = letter;
-			this.taskContent.append(div);
 
-		}
-	}
-
-	createShowItem(content){
-
-	    let div = document.createElement('div');
-	    div.classList.add('letter',...this.classes);
-	    div.innerHTML = content;
-	    div.style.backgroundColor = this.lessons.getRandomColor(res.arrColors);
-	    this.result.append(div);
-	}
-	
 }

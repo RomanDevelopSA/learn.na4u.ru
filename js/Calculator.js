@@ -1,18 +1,14 @@
-import Alphabet from "./Alphabet.js";
+import ShowItems from "./ShowItems.js";
 
-export default class Calculator extends Alphabet{
-
-   constructor() {
-      super();
-
-      this.number = "";
-      this.arrNums=[];
-      this.arrOperators = [];
-      this.total = 0;
-      this.categories = document.querySelector(".categories");
-   }
-
-   getData(numData, operator){
+export default class Calculator extends ShowItems{
+   
+    number = "";
+    arrNums=[];
+    arrOperators = [];
+    total = 0;
+    categories = document.querySelector(".categories");
+    
+   getData(numData){
       this.number += numData;
       console.log("num: "+this.number);
    }
@@ -27,37 +23,20 @@ export default class Calculator extends Alphabet{
 
    calculate(){
       this.arrNums.push(this.number);
+      console.log("arrNums: "+this.arrNums);
       this.arrNums.forEach((item)=>{
-         //this.total += +item;
-         this.total = this.total + +this.arrOperators +item;
+         this.total += +item;
       })
 
-      console.log("arrNums calc: "+this.arrNums);
-      console.log("arrOperators calc: " + this.arrOperators[0]);
-      console.log("result calc: " + this.total);
-
       return this.total;
-
    }
 
    reset(){
-
-      let childElements = document.querySelectorAll(".result>div");
-
-      console.log("childElements "+childElements.length);
-      for (let elem of childElements) {
-         elem.remove();
-      }
-
+      super.reset();
       this.number="";
       this.arrNums.length = 0;
       this.arrOperators.length = 0;
       this.total = 0;
-
    }
-
-
-
-
 
 }
