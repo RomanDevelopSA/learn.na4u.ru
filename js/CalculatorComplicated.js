@@ -1,15 +1,14 @@
 import ShowItems from "./ShowItems.js";
 
-export default class Calculator extends ShowItems{
+export default class CalculatorComplicated extends ShowItems{
    
     number = "";
     arrNums=[];
     arrOperators = [];
     total = 0;
-    categories = document.querySelector(".categories");
     
-   getData(numData){
-      this.number += numData;
+   getNumber(num){
+      this.number += num;
       console.log("num: "+this.number);
    }
 
@@ -24,8 +23,8 @@ export default class Calculator extends ShowItems{
    calculate(){
       this.arrNums.push(this.number);
       console.log("arrNums: "+this.arrNums);
-      this.arrNums.forEach((item)=>{
-         this.total += +item;
+      this.arrNums.forEach((item,index)=>{
+         this.total += Number(item) /*+ this.arrOperators[index] */;
       })
 
       return this.total;

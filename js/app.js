@@ -1,6 +1,7 @@
 import CreateButtons from "./CreateButtons.js";
 import ShowItems from './ShowItems.js';
-import Calculator from "./Calculator.js";
+import CalculatorComplicated from "./CalculatorComplicated.js";
+import CalculatorSimple from "./CalculatorSimple.js";
 import Alphabet from "./Alphabet.js";
 
 let taskContent = document.querySelector(".task_content");
@@ -9,7 +10,8 @@ let reset = document.querySelector(".reset");
 let categories = document.querySelector(".categories");
 
 let showItems = new ShowItems();
-let calculator = new Calculator();
+let calculator = new CalculatorComplicated();
+let calculatorSimple = new CalculatorSimple();
 let alphabet = new Alphabet();
 let createButtons = new CreateButtons();
 
@@ -47,22 +49,27 @@ function onCalculatorClick(event) {
     let key = event.target.dataset.key;
     let keyContent = event.target.innerHTML;
 
-    calculator.createShowItem(keyContent,classes);
+    showItems.createShowItem(keyContent,classes);
     let calc;
+    let num;
+    let arrNums=[];
 
     switch (key) {
-        case "add":
-            calculator.getOperator(keyContent);
+        case "plus":
+            //calculator.getOperator(keyContent);
+            console.log("plus");
             break;
-        case "subtract":
-            console.log("subtract");
+        case "minus":
+            //calculator.getOperator(keyContent);
+            console.log("minus");
             break;
         case "calculate":
-            calc = calculator.calculate();
-            calculator.createShowItem(calc,classes);
+            //calc = calculator.calculate();
+
+            showItems.createShowItem(calc,classes);
             break;
-        default:
-            calculator.getData(keyContent);
+        case "digit":
+            //calculator.getNumber(keyContent);
             break;
 
     }
@@ -70,6 +77,7 @@ function onCalculatorClick(event) {
 }
 
 reset.addEventListener("click", () => {
-    calculator.reset();
+    //calculator.reset();
+    calculatorSimple.reset();
     classes = showItems.classesToAdd();
 })
